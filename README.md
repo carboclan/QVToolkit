@@ -1,3 +1,3 @@
-# OAuth Prototype
-**Prototype Application to use OAuth service of some platforms.**
-... under construction
+# QVToolkit Prototype
+- Login via Github Twitter or Metamask.
+- Vote for your favorite speaker.
