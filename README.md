@@ -1,2 +1,3 @@
-# QVToolkit
-Yet another Quadratic voting toolkit prototype
+# OAuth Prototype
+**Prototype Application to use OAuth service of some platforms.**
+... under construction
