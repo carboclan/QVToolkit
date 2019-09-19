@@ -11,8 +11,8 @@ export default {
   name: "GithubLogin",
   computed: {},
   created() {
-    const { path, query } = this.$route;
-    const { code, from } = query;
+    const { query } = this.$route;
+    const { code } = query;
     const clientID = process.env.VUE_APP_GITHUB_CLIENT_ID;
     console.log(clientID);
     const scope = "read:public_repo,read:user";
