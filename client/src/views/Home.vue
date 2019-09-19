@@ -22,6 +22,15 @@ export default {
   name: "home",
   components: {
     HelloWorld
+  },
+  methods: {
+    // 点击时候触发， 重定向到登陆页面
+    async walletLogin(type) {
+      if (type === 'GitHub') {
+        this.$router.push({ name: 'GithubLogin' })
+        return
+      }
+    }
   }
 };
 </script>

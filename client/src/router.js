@@ -5,6 +5,8 @@ import Home from "./views/Home.vue";
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
+  base: '',
   routes: [
     {
       path: "/",
@@ -19,6 +21,11 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/login/github",
+      name: "GithubLogin",
+      component: () => import("./views/GithubLogin.vue")
     }
   ]
 });
