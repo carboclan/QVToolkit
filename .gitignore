@@ -2,3 +2,4 @@
 .config/
 config.js
 temp.md
+client/.env.development
