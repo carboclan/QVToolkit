@@ -1,5 +1,6 @@
 .idea/
 .config/
+node_modules/
 config.js
 temp.md
 client/.env.development
