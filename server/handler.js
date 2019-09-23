@@ -9,7 +9,7 @@ var querystring = require('querystring');
 // var http = require('http').Server(app);
 // var oauth = require('./oauth.js');
 // var token = require('./token.js');
-var config = require('./config');
+var config = require('./config.js');
 
 // allow custom header and CORS
 // app.use(cors());
