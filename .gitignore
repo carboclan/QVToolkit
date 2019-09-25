@@ -7,3 +7,4 @@ client/.env.development
 .DS_Store
 
 contracts/Ethereum/build/
+contracts/Ethereum/truffle-config.js
