@@ -1,0 +1,27 @@
+﻿tableData = [
+  {
+    title: "Defi blabla",
+    speaker: "Bowen",
+    period: "45min",
+    vote: 1
+  },
+  {
+    title: "Defi blabla",
+    speaker: "Bowen",
+    period: "45min",
+    vote: 1
+  },
+  {
+    title: "Defi blabla",
+    speaker: "Bowen",
+    period: "45min",
+    vote: 1
+  },
+  {
+    title: "Defi blabla",
+    speaker: "Bowen",
+    period: "45min",
+    vote: 1
+  }
+]
+};
