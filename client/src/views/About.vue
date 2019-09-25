@@ -66,7 +66,7 @@ export default {
     async loadInfo() {
       axios
         .get(
-          "https://raw.githubusercontent.com/carboclan/QVToolkit/master/client/package.json"
+          "https://raw.githubusercontent.com/carboclan/QVToolkit/master/data/agenda.json"
         )
         .then(response => {
           let responseData = response.data;
