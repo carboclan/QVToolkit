@@ -1,6 +1,6 @@
 pragma solidity ^0.5.0;
-import "./IERC721Full.sol";
-import "./SafeMath.sol";
+import "./libs/IERC721Full.sol";
+import "./libs/SafeMath.sol";
 
 contract Advertisement {
     
