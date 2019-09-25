@@ -8,3 +8,5 @@
 npm run serve
 ### Server
 node handler.js
+### Proxy
+node proxy.js
