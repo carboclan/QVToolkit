@@ -1,19 +1,22 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <el-table :data="tableData" stripe style="width: 100%">
-      <el-table-column prop="title" label="title" width="180"></el-table-column>
-      <el-table-column prop="speaker" label="speaker" width="180"></el-table-column>
-      <el-table-column prop="period" label="period"></el-table-column>
-      <el-table-column prop="vote" label="vote"></el-table-column>
+    <el-table :data="tableData" style="width: 100%">
+      <el-table-column prop="title" label="title"> </el-table-column>
+      <el-table-column prop="speaker" label="speaker"> </el-table-column>
+      <el-table-column prop="period" label="period"> </el-table-column>
+      <el-table-column prop="vote" label="vote">
+        <template slot-scope="scope">
+          <el-input-number
+            v-model="scope.row.vote"
+            @change="handleChange"
+            :min="1"
+            :max="10"
+            label="vote"
+          ></el-input-number>
+        </template>
+      </el-table-column>
     </el-table>
-    <el-input-number
-      v-model="num"
-      controls-position="right"
-      @change="handleChange"
-      :min="1"
-      :max="10"
-    >233</el-input-number>
   </div>
 </template>
 
@@ -28,12 +31,26 @@ export default {
         {
           title: "Defi blabla",
           speaker: "Bowen",
-          period: "45min"
+          period: "45min",
+          vote: 1
         },
         {
-          title: "Ethereum 2.0 Deliver time table",
-          speaker: "Vitalik",
-          period: "10min"
+          title: "Defi blabla",
+          speaker: "Bowen",
+          period: "45min",
+          vote: 1
+        },
+        {
+          title: "Defi blabla",
+          speaker: "Bowen",
+          period: "45min",
+          vote: 1
+        },
+        {
+          title: "Defi blabla",
+          speaker: "Bowen",
+          period: "45min",
+          vote: 1
         }
       ]
     };
@@ -41,6 +58,10 @@ export default {
   methods: {
     handleChange(value) {
       console.log(value);
+      console.log(this.tableData[0].vote);
+      console.log(this.tableData[1].vote);
+      console.log(this.tableData[2].vote);
+      console.log(this.tableData[3].vote);
     },
     async loadInfo() {
       axios
