@@ -26,6 +26,11 @@ export default new Router({
       path: "/login/github",
       name: "GithubLogin",
       component: () => import("./views/GithubLogin.vue")
-    }
+    },
+    {
+      path: "/login/twitter",
+      name: "TwitterLogin",
+      component: () => import("./views/TwitterLogin.vue")
+    },
   ]
 });

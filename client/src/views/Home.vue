@@ -30,6 +30,13 @@ export default {
         this.$router.push({ name: "GithubLogin" });
         return;
       }
+    },
+
+    async walletLogin(type) {
+      if (type === "Twitter") {
+        this.$router.push({ name: "TwitterLogin" });
+        return;
+      }
     }
   }
 };

@@ -1,5 +1,3 @@
-// 引导重定向， 还有拿到code之后返回， 都是到这个页面上去
-
 <template>
   <p>redirecting....</p>
 </template>
@@ -8,7 +6,7 @@
 import axios from "axios";
 
 export default {
-  name: "GithubLogin",
+  name: "TwitterLogin",
   computed: {},
   created() {
     const { query } = this.$route;
@@ -16,10 +14,10 @@ export default {
     const clientID = process.env.VUE_APP_GITHUB_CLIENT_ID;
     console.log(clientID);
     const scope = "read:public_repo,read:user";
+    // const oauth_token = 
     // 没有code的话， 要引导用户去GitHub的页面进行登录和授权操作
     if (!code) {
-      // https://github.com/login/oauth/authorize?scope=user:email&client_id=419a039b44160363d36b&redirect_uri=https%3A%2F%2Fauth-server.herokuapp.com%2Fauth%2Fredirect&response_type=code&state=github
-      window.location = `https://github.com/login/oauth/authorize?client_id=${clientID}&scope=${scope}`;
+      window.location = `https://api.twitter.com/oauth/authenticate?oauth_token=2ZDewQAAAAAAjSynAAABbWj8Yr8#`;
       // 有code， 证明用户已经做了授权操作， 需要提交后端后端验证这个code的正确性
     } else {
       console.log(code);
