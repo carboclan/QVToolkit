@@ -18,14 +18,15 @@
       </el-table-column>
     </el-table>
   </div>
- 
-
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
+      num: 1,
       tableData: [
         {
           title: "Defi blabla",
@@ -61,7 +62,27 @@ export default {
       console.log(this.tableData[1].vote);
       console.log(this.tableData[2].vote);
       console.log(this.tableData[3].vote);
+    },
+    async loadInfo() {
+      axios
+        .get(
+          "https://raw.githubusercontent.com/carboclan/QVToolkit/master/client/package.json"
+        )
+        .then(response => {
+          let responseData = response.data;
+          this.tableData.push({
+            title: responseData.name,
+            speaker: responseData.scripts.build,
+            period: responseData.scripts.serve
+          });
+        })
+        .catch(error => {
+          this.errors.push(error);
+        });
     }
+  },
+  created: function() {
+    this.loadInfo();
   }
 };
-</script>
+</script> 
