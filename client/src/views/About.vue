@@ -2,9 +2,9 @@
   <div class="about">
     <h1>This is an about page</h1>
     <el-table :data="tableData" style="width: 100%">
-      <el-table-column prop="title" label="title"> </el-table-column>
-      <el-table-column prop="speaker" label="speaker"> </el-table-column>
-      <el-table-column prop="period" label="period"> </el-table-column>
+      <el-table-column prop="title" label="title"></el-table-column>
+      <el-table-column prop="speaker" label="speaker"></el-table-column>
+      <el-table-column prop="period" label="period"></el-table-column>
       <el-table-column prop="vote" label="vote">
         <template slot-scope="scope">
           <el-input-number
@@ -27,32 +27,7 @@ export default {
   data() {
     return {
       num: 1,
-      tableData: [
-        {
-          title: "Defi blabla",
-          speaker: "Bowen",
-          period: "45min",
-          vote: 1
-        },
-        {
-          title: "Defi blabla",
-          speaker: "Bowen",
-          period: "45min",
-          vote: 1
-        },
-        {
-          title: "Defi blabla",
-          speaker: "Bowen",
-          period: "45min",
-          vote: 1
-        },
-        {
-          title: "Defi blabla",
-          speaker: "Bowen",
-          period: "45min",
-          vote: 1
-        }
-      ]
+      tableData: []
     };
   },
   methods: {
@@ -70,10 +45,8 @@ export default {
         )
         .then(response => {
           let responseData = response.data;
-          this.tableData.push({
-            title: responseData.name,
-            speaker: responseData.scripts.build,
-            period: responseData.scripts.serve
+          responseData.forEach(element => {
+            this.tableData.push(element);
           });
         })
         .catch(error => {
