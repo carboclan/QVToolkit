@@ -29,11 +29,7 @@ export default {
       if (type === "GitHub") {
         this.$router.push({ name: "GithubLogin" });
         return;
-      }
-    },
-
-    async walletLogin(type) {
-      if (type === "Twitter") {
+      } else if (type === "Twitter") {
         this.$router.push({ name: "TwitterLogin" });
         return;
       }

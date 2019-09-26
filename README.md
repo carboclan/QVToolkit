@@ -10,3 +10,5 @@ npm run serve
 node handler.js
 ### Proxy
 node proxy.js
+### Contracts
+Check here: https://juejin.im/post/5adedbad6fb9a07acb3c81bb
