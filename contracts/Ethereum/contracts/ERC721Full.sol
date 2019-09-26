@@ -17,12 +17,12 @@ contract ERC721Full is ERC721, ERC721Enumerable, ERC721Metadata {
     }
 
     function setup() public {
-        // require(!init, "Already initialized");
-        // init = true;
+        require(!init, "Already initialized");
+        init = true;
 
-        // steward = msg.sender;
+        steward = msg.sender;
         // mint artwork
-        // _mint(steward, 42); // mint
-        // _setTokenURI(42, "https://thisartworkisalwaysonsale.com/metadata");
+        _mint(steward, 42); // mint
+        _setTokenURI(42, "https://thisartworkisalwaysonsale.com/metadata");
     }
 }
