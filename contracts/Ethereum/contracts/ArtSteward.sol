@@ -36,19 +36,19 @@ contract ArtSteward {
     uint256 patronageNumerator = 50000000000;
     uint256 patronageDenominator = 1000000000000;
 
-    enum StewardState { Foreclosed, Owned }
+    enum StewardState { foreclosed, Owned }
     StewardState public state;
 
     constructor(address payable _artist, address _artwork) public {
-        art = IERC721Full(_artwork);
-        art.setup();
+        //art = IERC721Full(_artwork);
+        //art.setup();
         artist = _artist;
-        state = StewardState.Foreclosed;
+        state = StewardState.foreclosed;
     } 
 
     event LogBuy(address indexed owner, uint256 indexed price);
     event LogPriceChange(uint256 indexed newPrice);
-    event LogForeclosure(address indexed prevOwner);
+    event Logforeclosure(address indexed prevOwner);
     event LogCollection(uint256 indexed collected);
     
     modifier onlyPatron() {
@@ -131,7 +131,7 @@ contract ArtSteward {
     
     // note: anyone can deposit
     function depositWei() public payable collectPatronage {
-        require(state != StewardState.Foreclosed, "Foreclosed");
+        require(state != StewardState.foreclosed, "foreclosed");
         deposit = deposit.add(msg.value);
     }
     
@@ -149,7 +149,7 @@ contract ArtSteward {
             // pay previous owner their price + deposit back.
             address payable payableCurrentOwner = address(uint160(currentOwner));
             payableCurrentOwner.transfer(totalToPayBack);
-        } else if(state == StewardState.Foreclosed) {
+        } else if(state == StewardState.foreclosed) {
             state = StewardState.Owned;
             timeLastCollected = now;
         }
@@ -160,7 +160,7 @@ contract ArtSteward {
     }
 
     function changePrice(uint256 _newPrice) public onlyPatron collectPatronage {
-        require(state != StewardState.Foreclosed, "Foreclosed");
+        require(state != StewardState.foreclosed, "foreclosed");
         require(_newPrice != 0, "Incorrect Price");
         
         price = _newPrice;
@@ -199,10 +199,10 @@ contract ArtSteward {
         // become steward of artwork (aka foreclose)
         address currentOwner = art.ownerOf(42);
         transferArtworkTo(currentOwner, address(this), 0);
-        state = StewardState.Foreclosed;
+        state = StewardState.foreclosed;
         currentCollected = 0;
 
-        emit LogForeclosure(currentOwner);
+        emit Logforeclosure(currentOwner);
     }
 
     function transferArtworkTo(address _currentOwner, address _newOwner, uint256 _newPrice) internal {
