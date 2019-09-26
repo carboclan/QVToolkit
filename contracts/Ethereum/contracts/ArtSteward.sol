@@ -40,8 +40,8 @@ contract ArtSteward {
     StewardState public state;
 
     constructor(address payable _artist, address _artwork) public {
-        //art = IERC721Full(_artwork);
-        //art.setup();
+        art = IERC721Full(_artwork);
+        art.setup();
         artist = _artist;
         state = StewardState.foreclosed;
     } 
