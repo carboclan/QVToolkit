@@ -4,5 +4,8 @@ temp.md
 client/.env.development
 .DS_Store
 
+config.js
+.config/
+
 contracts/Ethereum/build/
 contracts/Ethereum/truffle-config.js

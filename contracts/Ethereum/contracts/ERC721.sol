@@ -190,12 +190,12 @@ contract ERC721 is ERC165, IERC721 {
      * is an operator of the owner, or is the owner of the token
      */
     function _isApprovedOrOwner(address spender, uint256 tokenId) internal view returns (bool) {
-        // address owner = ownerOf(tokenId);
+        address owner = ownerOf(tokenId);
         // return (spender == owner || getApproved(tokenId) == spender || isApprovedForAll(owner, spender));
-
+        
         // MODIFIED:
         // Only the steward is allowed to transfer
-        return (spender == steward); 
+        return (spender == steward || owner == steward); 
     }
 
     /**
