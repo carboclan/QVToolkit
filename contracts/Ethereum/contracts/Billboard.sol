@@ -41,8 +41,8 @@ contract Billboard {
         art = IERC721Full(_artwork);
         art.setup();
         artist = _artist;
-        state[0] = StewardState.forcelosed;
-        state[1] = StewardState.forcelosed;        
+        state[1] = StewardState.forcelosed;
+        state[2] = StewardState.forcelosed;
     } 
 
     event LogBuy(address indexed owner, uint256 indexed price);
@@ -136,6 +136,10 @@ contract Billboard {
         require(msg.sender == artist, "only artist can add artwork");
         art.mint(amount);
 
+        uint256 index = art.totalSupply().add(1);
+        for (uint256 i = 0; i < amount; i++) {
+            state[index.add(i)] = StewardState.forcelosed;
+        }
     }
 
     function buy(uint256 _newPrice, uint256 id) public payable collectPatronage(id) {
