@@ -14,7 +14,8 @@ const TOKEN_SALT = '';
 
 
 const GITHUB_APP_NAME = 'QVTools';
-
+const GITHUB_CLIENT_ID = '889e6eafa77e2e87a08c';
+const GITHUB_CLIENT_SECRET = '169a4dec4bf6708dc3d472f445fb943e7100279c';
 const SERVER_PORT = 28000;
 
 module.exports.OAUTH_TOKEN_URL = OAUTH_TOKEN_URL;
