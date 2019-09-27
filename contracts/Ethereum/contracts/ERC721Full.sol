@@ -22,8 +22,17 @@ contract ERC721Full is ERC721, ERC721Enumerable, ERC721Metadata {
 
         steward = msg.sender;
         // mint artwork
-        _mint(steward, 0); // mint
-        _mint(steward, 1); // mint        
-        _setTokenURI(42, "https://thisartworkisalwaysonsale.com/metadata");
+        _mint(steward, 1); // mint
+        _mint(steward, 2); // mint        
+       // _setTokenURI(42, "https://thisartworkisalwaysonsale.com/metadata");
+    }
+
+    function mint(uint256 amount) public {
+        require(msg.sender == steward, "only steward contract can do");
+
+        uint256 index = totalSupply().add(1);
+        for (uint256 i = 0; i < amount; i++) {
+            _mint(steward, index.add(i));
+        }
     }
 }

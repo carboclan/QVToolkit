@@ -12,6 +12,7 @@ contract IERC721 is IERC165 {
     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
 
     function setup() public;
+    function mint(uint256 amount) public;
 
     function balanceOf(address owner) public view returns (uint256 balance);
     function ownerOf(uint256 tokenId) public view returns (address owner);
