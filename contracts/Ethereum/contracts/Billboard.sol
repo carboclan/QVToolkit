@@ -131,7 +131,13 @@ contract Billboard {
         require(state[id] != StewardState.forcelosed, "forcelosed");
         deposit[id] = deposit[id].add(msg.value);
     }
-    
+
+    function mint(uint256 amount) public {
+        require(msg.sender == artist, "only artist can add artwork");
+        art.mint(amount);
+
+    }
+
     function buy(uint256 _newPrice, uint256 id) public payable collectPatronage(id) {
         require(_newPrice > 0, "Price is zero");
         require(msg.value > price[id], "Not enough"); // >, coz need to have at least something for deposit
