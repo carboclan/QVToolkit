@@ -11,4 +11,6 @@ node handler.js
 ### Proxy
 node proxy.js
 ### Contracts
+rm -rf ./build
+truffle deploy --network ropsten
 Check here: https://juejin.im/post/5adedbad6fb9a07acb3c81bb
